@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une réservation{% endblock %}
+
+{% block body %}
+
+<h1>Ajouter une réservation</h1>
+
+{{ form_start(formReservation) }}
+    {{ form_errors(formReservation) }}
+
+    <div class="card card-infos">
+        {{ form_row(formReservation.chambre) }}
+        {{ form_row(formReservation.intitule) }}
+        <div class="row">
+            <div class="col">
+                {{ form_row(formReservation.dateStart) }}
+            </div>
+            <div class="col">
+                {{ form_row(formReservation.dateEnd) }}
+            </div>
+            <div class="col">
+                {{ form_row(formReservation.nbPersonnes) }}
+            </div>
+        </div>
+    </div>
+    <div class="card card-secondary">
+        {{ form_row(formReservation.description) }}
+        <div class="row">
+            <div class="col">
+                {{ form_row(formReservation.pro) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form_row(formReservation.codeReservation) }}
+            </div>
+            <div class="col">
+                {{ form_row(formReservation.confirmCodeReservation) }}
+            </div>
+        </div>
+    </div>
+
+    {{ form_row(formReservation.ajouter) }}
+{{ form_end(formReservation) }}
+
+    
+{% endblock %}

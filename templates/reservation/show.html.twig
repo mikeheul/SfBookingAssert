@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservation{% endblock %}
+
+{% block body %}
+
+<h1>{{ reservation.intitule }}</h1>
+
+<div class="infos">
+    <div class="row">
+        <div class="col">
+            <img src="{{ qrcode['withImage'] }}" alt="">
+        </div>
+        <div class="col">
+            <p>
+                <b>Chambre :</b> {{ reservation.chambre }}<br>
+                <b>Date de début :</b> {{ reservation.dateStart | date('d-m-Y') }}<br>
+                <b>Date de fin :</b> {{ reservation.dateEnd | date('d-m-Y') }}<br>
+                {{ reservation.isPro | raw }}
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

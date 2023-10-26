@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des réservations{% endblock %}
+
+{% block body %}
+
+<h1>Liste des réservations</h1>
+
+{# <a href="{{ path('add_reservation') }}" class="btn btn-primary">Ajouter une réservation</a> #}
+
+<div class="table-responsive-md">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Chambre</th>
+                <th>Nom réservation</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation in reservations %}
+            <tr>
+                <td>{{ reservation.isPro | raw }}</td>
+                <td>{{ reservation.chambre }}</td>
+                <td><a href="{{ path('show_reservation', {'id':reservation.id}) }}">{{ reservation.intitule }}</a></td>
+                <td>{{ reservation.dateStart | date('d-m-Y') }}</td>
+                <td>{{ reservation.dateEnd | date('d-m-Y') }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+ 
+{% endblock %}
