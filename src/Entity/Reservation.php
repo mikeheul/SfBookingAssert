@@ -72,10 +72,6 @@ class Reservation
     private ?string $description = null;
 
     #[ORM\Column]
-    // #[Assert\Choice(
-    //     choices: ["Personnel" => 0, "Professionnel" => 1],
-    //     message: 'Vous devez choisir parmi les choix proposés !'
-    // )]
     private ?bool $pro = null;
 
     #[ORM\ManyToOne(inversedBy: 'reservations')]
