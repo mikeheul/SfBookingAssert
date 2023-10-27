@@ -13,12 +13,16 @@
         <div class="card">
             <h5 class="card-header">Chambre n°{{ chambre.numero }}</h5>
             <div class="card-body">
-            <h5 class="card-title">Informations</h5>
-            <p class="card-text">
-                Nombre de lits : {{ chambre.nbLits }}<br>
-                Wifi : {{ chambre.wifi }}
-            </p>
-            <a href="{{ path('add_reservation_chambre', {'id': chambre.id}) }}" class="btn btn-success">Réserver</a>
+                <h5 class="card-title">Informations</h5>
+                <p class="card-text">
+                    Nombre de lits : {{ chambre.nbLits }}<br>
+                    Wifi : {{ chambre.wifi }}
+                </p>
+                <a href="{{ path('add_reservation_chambre', {'id': chambre.id}) }}" class="btn btn-primary">Réserver</a>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <a href="" class="btn btn-warning text-light"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href="" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></a>
+                {% endif %}
             </div>
         </div>
     </div>
