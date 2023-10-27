@@ -44,5 +44,18 @@
     {{ form_row(formReservation.ajouter) }}
 {{ form_end(formReservation) }}
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var alertDivs = document.querySelectorAll('.alert');
+
+        alertDivs.forEach(function (alertDiv) {
+            setTimeout(function () {
+                //alertDiv.style.display = 'none';
+                alertDiv.classList.add('hidden')
+            }, 2000); // 5000 milliseconds = 5 seconds
+        });
+    });
+</script>
     
 {% endblock %}
+
