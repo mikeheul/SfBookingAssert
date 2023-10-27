@@ -14,6 +14,7 @@
             <tr>
                 <th>Type</th>
                 <th>Chambre</th>
+                <th>Client</th>
                 <th>Nom réservation</th>
                 <th>Date de début</th>
                 <th>Date de fin</th>
@@ -24,6 +25,7 @@
             <tr>
                 <td>{{ reservation.isPro | raw }}</td>
                 <td>{{ reservation.chambre }}</td>
+                <td>{{ reservation.user.username }}</td>
                 <td><a href="{{ path('show_reservation', {'id':reservation.id}) }}">{{ reservation.intitule }}</a></td>
                 <td>{{ reservation.dateStart | date('d-m-Y') }}</td>
                 <td>{{ reservation.dateEnd | date('d-m-Y') }}</td>

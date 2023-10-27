@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des chambres{% endblock %}
+
+{% block body %}
+
+<h1>Liste des chambres</h1>
+
+
+<div class="chambres row">
+{% for chambre in chambres %}
+    <div class="col-sm-6">
+        <div class="card">
+            <h5 class="card-header">Chambre n°{{ chambre.numero }}</h5>
+            <div class="card-body">
+            <h5 class="card-title">Informations</h5>
+            <p class="card-text">
+                Nombre de lits : {{ chambre.nbLits }}<br>
+                Wifi : {{ chambre.wifi }}
+            </p>
+            <a href="{{ path('add_reservation_chambre', {'id': chambre.id}) }}" class="btn btn-success">Réserver</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -23,7 +23,8 @@ class ReservationType extends AbstractType
     {
         $builder
             ->add('chambre', EntityType::class, [
-                'class' => Chambre::class
+                'class' => Chambre::class,
+                'disabled' => $options['disabled_chambre']
             ])
             ->add('intitule', TextType::class, [
                 'label' => 'Intitulé',
@@ -89,6 +90,7 @@ class ReservationType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Reservation::class,
+            'disabled_chambre' => false,
         ]);
     }
 }

@@ -73,9 +73,13 @@ class Reservation
 
     #[ORM\Column]
     private ?bool $pro = null;
+    
+    #[ORM\ManyToOne(inversedBy: 'reservations')]
+    private ?Chambre $chambre;
 
     #[ORM\ManyToOne(inversedBy: 'reservations')]
-    private ?Chambre $chambre = null;
+    #[ORM\JoinColumn(nullable: true)]
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -195,6 +199,18 @@ class Reservation
     public function setChambre(?Chambre $chambre): static
     {
         $this->chambre = $chambre;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

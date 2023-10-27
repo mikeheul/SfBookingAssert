@@ -20,6 +20,10 @@ table a {
     color: gray;
 }
 
+input {
+    margin-bottom: 20px;
+}
+
 .card {
     padding: 20px;
     margin: 20px 0;
@@ -34,6 +38,11 @@ table a {
     background: #dbdbdb56;
 }
 
+.chambres .card {
+    padding: 0;
+    border: 1px solid #ccc;
+}
+
 .badge-success {
     background: rgb(77, 183, 109);
 }
@@ -41,6 +50,10 @@ table a {
     background: #185fa7;
 }
 
+button {
+    display: block;
+    margin-bottom: 20px !important;
+}
 .btn {
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
 }
