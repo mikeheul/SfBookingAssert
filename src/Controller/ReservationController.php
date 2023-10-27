@@ -54,7 +54,11 @@ class ReservationController extends AbstractController
                 if(empty($isAvailable)) {
                     $entityManager->persist($reservation);
                     $entityManager->flush();    
-                } 
+                } else {
+                    $this->addFlash('danger', 'Chambre non disponible à ces dates');
+                    return $this->redirectToRoute('add_reservation');
+                }
+            
                 return $this->redirectToRoute('app_reservation');
             }
             

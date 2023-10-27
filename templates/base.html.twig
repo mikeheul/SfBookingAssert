@@ -46,6 +46,14 @@
             </div>
         </nav>
         <main class="container">
+            {% for flashType, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ flashType }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            {% endfor %}
+
             {% block body %}{% endblock %}
         </main>
         {% block javascripts %}
